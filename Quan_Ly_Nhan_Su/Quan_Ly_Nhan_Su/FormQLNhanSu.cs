@@ -34,16 +34,6 @@ namespace Quan_Ly_Nhan_Su
             if (e.RowIndex < 0) return;
             if (dgvDsNhanVien.Rows[e.RowIndex].DataBoundItem == null) return;
 
-            // NOTE: designer đang để tên control hơi "auto" (textBox1..4)
-            // Map:
-            // tbMaNV = Ma_NV
-            // textBox1 = Ten_NV
-            // dateTimePicker1 = Ngay_Sinh
-            // textBox3 = Gioi_Tinh
-            // textBox2 = SDT
-            // textBox4 = Email
-            // dateTimePicker2 = Ngay_Vao_Lam
-
             var row = dgvDsNhanVien.Rows[e.RowIndex];
             tbMaNV.Text = row.Cells["Ma_NV"].Value?.ToString() ?? "";
             textBox1.Text = row.Cells["Ten_NV"].Value?.ToString() ?? "";

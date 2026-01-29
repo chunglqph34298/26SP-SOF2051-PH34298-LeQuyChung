@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Quan_Ly_Nhan_Su.BLL
 {
-    internal class NhanVienBLL
+    public class NhanVienBLL
     {
     }
 }
