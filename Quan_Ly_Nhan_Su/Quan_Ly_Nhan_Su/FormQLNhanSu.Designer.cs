@@ -1,4 +1,5 @@
-﻿namespace Quan_Ly_Nhan_Su
+﻿
+namespace Quan_Ly_Nhan_Su
 {
     partial class Form1
     {
@@ -36,12 +37,16 @@
             btnSua = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
+            cbGioiTinh = new ComboBox();
+            cbPhongBan = new ComboBox();
+            label16 = new Label();
+            label12 = new Label();
+            cbChucVu = new ComboBox();
+            tbEmail = new TextBox();
+            tbSDT = new TextBox();
+            dtpNgayVaoLam = new DateTimePicker();
+            dtpNgaySinh = new DateTimePicker();
+            tbTenNV = new TextBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -52,17 +57,17 @@
             label1 = new Label();
             lblNhanVien = new Label();
             tabPage2 = new TabPage();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnLamMoiCV = new Button();
+            btnXoaCV = new Button();
+            btnSuaCV = new Button();
+            btnThemCV = new Button();
             groupBox2 = new GroupBox();
-            textBox8 = new TextBox();
+            tbTenCV = new TextBox();
             label13 = new Label();
-            textBox9 = new TextBox();
+            tbMaCV = new TextBox();
             label14 = new Label();
             label15 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvChucVu = new DataGridView();
             tabPage3 = new TabPage();
             button5 = new Button();
             button6 = new Button();
@@ -185,7 +190,7 @@
             groupBox1.SuspendLayout();
             tabPage2.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvChucVu).BeginInit();
             tabPage3.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -294,12 +299,16 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(cbGioiTinh);
+            groupBox1.Controls.Add(cbPhongBan);
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(cbChucVu);
+            groupBox1.Controls.Add(tbEmail);
+            groupBox1.Controls.Add(tbSDT);
+            groupBox1.Controls.Add(dtpNgayVaoLam);
+            groupBox1.Controls.Add(dtpNgaySinh);
+            groupBox1.Controls.Add(tbTenNV);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
@@ -315,56 +324,90 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Nhan Vien";
             // 
-            // textBox4
+            // cbGioiTinh
             // 
-            textBox4.Location = new Point(766, 28);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(270, 31);
-            textBox4.TabIndex = 13;
+            cbGioiTinh.FormattingEnabled = true;
+            cbGioiTinh.Location = new Point(566, 28);
+            cbGioiTinh.Name = "cbGioiTinh";
+            cbGioiTinh.Size = new Size(118, 33);
+            cbGioiTinh.TabIndex = 18;
             // 
-            // textBox3
+            // cbPhongBan
             // 
-            textBox3.Location = new Point(566, 30);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(115, 31);
-            textBox3.TabIndex = 12;
-            textBox3.TextChanged += textBox3_TextChanged;
+            cbPhongBan.FormattingEnabled = true;
+            cbPhongBan.Location = new Point(781, 111);
+            cbPhongBan.Name = "cbPhongBan";
+            cbPhongBan.Size = new Size(183, 33);
+            cbPhongBan.TabIndex = 17;
             // 
-            // textBox2
+            // label16
             // 
-            textBox2.Location = new Point(528, 75);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(240, 31);
-            textBox2.TabIndex = 11;
+            label16.AutoSize = true;
+            label16.Location = new Point(677, 118);
+            label16.Name = "label16";
+            label16.Size = new Size(98, 25);
+            label16.TabIndex = 16;
+            label16.Text = "Phong Ban";
             // 
-            // dateTimePicker2
+            // label12
             // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(612, 118);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(156, 31);
-            dateTimePicker2.TabIndex = 10;
+            label12.AutoSize = true;
+            label12.Location = new Point(789, 83);
+            label12.Name = "label12";
+            label12.Size = new Size(75, 25);
+            label12.TabIndex = 15;
+            label12.Text = "Chuc vu";
             // 
-            // dateTimePicker1
+            // cbChucVu
             // 
-            dateTimePicker1.CustomFormat = "HH:mm";
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(148, 112);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(154, 31);
-            dateTimePicker1.TabIndex = 9;
+            cbChucVu.FormattingEnabled = true;
+            cbChucVu.Location = new Point(870, 75);
+            cbChucVu.Name = "cbChucVu";
+            cbChucVu.Size = new Size(166, 33);
+            cbChucVu.TabIndex = 14;
             // 
-            // textBox1
+            // tbEmail
             // 
-            textBox1.Location = new Point(148, 72);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(240, 31);
-            textBox1.TabIndex = 8;
+            tbEmail.Location = new Point(766, 28);
+            tbEmail.Name = "tbEmail";
+            tbEmail.Size = new Size(270, 31);
+            tbEmail.TabIndex = 13;
+            // 
+            // tbSDT
+            // 
+            tbSDT.Location = new Point(528, 75);
+            tbSDT.Name = "tbSDT";
+            tbSDT.Size = new Size(240, 31);
+            tbSDT.TabIndex = 11;
+            // 
+            // dtpNgayVaoLam
+            // 
+            dtpNgayVaoLam.Format = DateTimePickerFormat.Short;
+            dtpNgayVaoLam.Location = new Point(473, 111);
+            dtpNgayVaoLam.Name = "dtpNgayVaoLam";
+            dtpNgayVaoLam.Size = new Size(156, 31);
+            dtpNgayVaoLam.TabIndex = 10;
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.CustomFormat = "HH:mm";
+            dtpNgaySinh.Format = DateTimePickerFormat.Short;
+            dtpNgaySinh.Location = new Point(148, 112);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(154, 31);
+            dtpNgaySinh.TabIndex = 9;
+            // 
+            // tbTenNV
+            // 
+            tbTenNV.Location = new Point(148, 72);
+            tbTenNV.Name = "tbTenNV";
+            tbTenNV.Size = new Size(240, 31);
+            tbTenNV.TabIndex = 8;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(479, 123);
+            label7.Location = new Point(340, 117);
             label7.Name = "label7";
             label7.Size = new Size(127, 25);
             label7.TabIndex = 7;
@@ -444,13 +487,13 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(button1);
-            tabPage2.Controls.Add(button2);
-            tabPage2.Controls.Add(button3);
-            tabPage2.Controls.Add(button4);
+            tabPage2.Controls.Add(btnLamMoiCV);
+            tabPage2.Controls.Add(btnXoaCV);
+            tabPage2.Controls.Add(btnSuaCV);
+            tabPage2.Controls.Add(btnThemCV);
             tabPage2.Controls.Add(groupBox2);
             tabPage2.Controls.Add(label15);
-            tabPage2.Controls.Add(dataGridView1);
+            tabPage2.Controls.Add(dgvChucVu);
             tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -459,51 +502,55 @@
             tabPage2.Text = "Chuc Vu";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnLamMoiCV
             // 
-            button1.Location = new Point(568, 220);
-            button1.Margin = new Padding(4);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 36);
-            button1.TabIndex = 13;
-            button1.Text = "Làm mới";
-            button1.UseVisualStyleBackColor = true;
+            btnLamMoiCV.Location = new Point(568, 220);
+            btnLamMoiCV.Margin = new Padding(4);
+            btnLamMoiCV.Name = "btnLamMoiCV";
+            btnLamMoiCV.Size = new Size(118, 36);
+            btnLamMoiCV.TabIndex = 13;
+            btnLamMoiCV.Text = "Làm mới";
+            btnLamMoiCV.UseVisualStyleBackColor = true;
+            btnLamMoiCV.Click += btnLamMoiCV_Click;
             // 
-            // button2
+            // btnXoaCV
             // 
-            button2.Location = new Point(386, 220);
-            button2.Margin = new Padding(4);
-            button2.Name = "button2";
-            button2.Size = new Size(118, 36);
-            button2.TabIndex = 12;
-            button2.Text = "Xóa";
-            button2.UseVisualStyleBackColor = true;
+            btnXoaCV.Location = new Point(392, 220);
+            btnXoaCV.Margin = new Padding(4);
+            btnXoaCV.Name = "btnXoaCV";
+            btnXoaCV.Size = new Size(118, 36);
+            btnXoaCV.TabIndex = 12;
+            btnXoaCV.Text = "Xóa";
+            btnXoaCV.UseVisualStyleBackColor = true;
+            btnXoaCV.Click += btnXoaCV_Click;
             // 
-            // button3
+            // btnSuaCV
             // 
-            button3.Location = new Point(199, 220);
-            button3.Margin = new Padding(4);
-            button3.Name = "button3";
-            button3.Size = new Size(118, 36);
-            button3.TabIndex = 11;
-            button3.Text = "Sửa";
-            button3.UseVisualStyleBackColor = true;
+            btnSuaCV.Location = new Point(199, 220);
+            btnSuaCV.Margin = new Padding(4);
+            btnSuaCV.Name = "btnSuaCV";
+            btnSuaCV.Size = new Size(118, 36);
+            btnSuaCV.TabIndex = 11;
+            btnSuaCV.Text = "Sửa";
+            btnSuaCV.UseVisualStyleBackColor = true;
+            btnSuaCV.Click += btnSuaCV_Click;
             // 
-            // button4
+            // btnThemCV
             // 
-            button4.Location = new Point(31, 220);
-            button4.Margin = new Padding(4);
-            button4.Name = "button4";
-            button4.Size = new Size(118, 36);
-            button4.TabIndex = 10;
-            button4.Text = "Thêm";
-            button4.UseVisualStyleBackColor = true;
+            btnThemCV.Location = new Point(31, 220);
+            btnThemCV.Margin = new Padding(4);
+            btnThemCV.Name = "btnThemCV";
+            btnThemCV.Size = new Size(118, 36);
+            btnThemCV.TabIndex = 10;
+            btnThemCV.Text = "Thêm";
+            btnThemCV.UseVisualStyleBackColor = true;
+            btnThemCV.Click += btnThemCV_Click;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox8);
+            groupBox2.Controls.Add(tbTenCV);
             groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(textBox9);
+            groupBox2.Controls.Add(tbMaCV);
             groupBox2.Controls.Add(label14);
             groupBox2.Location = new Point(16, 26);
             groupBox2.Name = "groupBox2";
@@ -512,12 +559,12 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Chuc Vu";
             // 
-            // textBox8
+            // tbTenCV
             // 
-            textBox8.Location = new Point(148, 106);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(240, 31);
-            textBox8.TabIndex = 8;
+            tbTenCV.Location = new Point(148, 106);
+            tbTenCV.Name = "tbTenCV";
+            tbTenCV.Size = new Size(240, 31);
+            tbTenCV.TabIndex = 8;
             // 
             // label13
             // 
@@ -529,12 +576,12 @@
             label13.Text = "Ten Chuc Vu";
             label13.Click += label13_Click;
             // 
-            // textBox9
+            // tbMaCV
             // 
-            textBox9.Location = new Point(148, 28);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(240, 31);
-            textBox9.TabIndex = 1;
+            tbMaCV.Location = new Point(148, 28);
+            tbMaCV.Name = "tbMaCV";
+            tbMaCV.Size = new Size(240, 31);
+            tbMaCV.TabIndex = 1;
             // 
             // label14
             // 
@@ -556,14 +603,16 @@
             label15.TabIndex = 8;
             label15.Text = "Danh Sach Chuc Vu";
             // 
-            // dataGridView1
+            // dgvChucVu
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 281);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1065, 173);
-            dataGridView1.TabIndex = 0;
+            dgvChucVu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvChucVu.Location = new Point(3, 281);
+            dgvChucVu.Name = "dgvChucVu";
+            dgvChucVu.RowHeadersWidth = 62;
+            dgvChucVu.Size = new Size(1065, 173);
+            dgvChucVu.TabIndex = 0;
+            dgvChucVu.CellClick += dgvChucVu_CellContentClick;
+            dgvChucVu.CellContentClick += dgvChucVu_CellContentClick;
             // 
             // tabPage3
             // 
@@ -1723,7 +1772,7 @@
             tabPage2.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvChucVu).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -1757,6 +1806,31 @@
             ResumeLayout(false);
         }
 
+        private void label55_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void textBox27_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private DataGridView dgvDsNhanVien;
@@ -1771,7 +1845,7 @@
         private TabPage tabPage6;
         private TabPage tabPage7;
         private TabPage tabPage8;
-        private DataGridView dataGridView1;
+        private DataGridView dgvChucVu;
         private DataGridView dataGridView2;
         private DataGridView dataGridView3;
         private DataGridView dataGridView4;
@@ -1783,9 +1857,9 @@
         private Label label1;
         private Label label4;
         private Label label3;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
+        private DateTimePicker dtpNgayVaoLam;
+        private DateTimePicker dtpNgaySinh;
+        private TextBox tbTenNV;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -1793,17 +1867,16 @@
         private Button btnXoa;
         private Button btnSua;
         private Button btnThem;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private TextBox tbEmail;
+        private TextBox tbSDT;
+        private Button btnLamMoiCV;
+        private Button btnXoaCV;
+        private Button btnSuaCV;
+        private Button btnThemCV;
         private GroupBox groupBox2;
-        private TextBox textBox8;
+        private TextBox tbTenCV;
         private Label label13;
-        private TextBox textBox9;
+        private TextBox tbMaCV;
         private Label label14;
         private Label label15;
         private Button button5;
@@ -1910,5 +1983,10 @@
         private DateTimePicker dateTimePicker3;
         private TextBox textBox10;
         private Label label11;
+        private ComboBox cbPhongBan;
+        private Label label16;
+        private Label label12;
+        private ComboBox cbChucVu;
+        private ComboBox cbGioiTinh;
     }
 }

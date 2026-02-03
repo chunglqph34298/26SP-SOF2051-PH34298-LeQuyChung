@@ -39,7 +39,7 @@ namespace Quan_Ly_Nhan_Su.Utils
                 return ex.Message;
             }
         }
-        public static DataTable ExecuteQueryTable(string sql, List<object> parameters)
+        public static DataTable ExecuteQueryTable(string sql, List<object>? parameters)
         {
             SqlCommand command = new(sql, _connection);
 

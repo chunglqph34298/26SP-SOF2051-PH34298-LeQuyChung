@@ -8,140 +8,171 @@ namespace Quan_Ly_Nhan_Su
         public Form1()
         {
             InitializeComponent();
-            WireEvents();
-            SelectAll();
+            InitUI();
+            LoadCombos();
+            LoadGrid();
+            LoadGridChucVu();
         }
-        private void WireEvents()
+        private void InitUI()
         {
-            // Nhan Vien tab
-            btnThem.Click += btnThem_Click;
-            btnSua.Click += btnSua_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnLamMoi.Click += btnLamMoi_Click;
+            tbMaNV.ReadOnly = true;
 
-            dgvDsNhanVien.CellClick += dgvDsNhanVien_CellClick;
+            // giới tính dạng string
+            cbGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGioiTinh.Items.Clear();
+            cbGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ", "Khác" });
+            cbGioiTinh.SelectedIndex = -1;
+
+            cbChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPhongBan.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dtpNgayVaoLam.Format = DateTimePickerFormat.Custom;
+            dtpNgayVaoLam.CustomFormat = "dd/MM/yyyy";
+            tbMaCV.ReadOnly = true;
+            tbMaCV.Enabled = false;
+
         }
-        public void SelectAll()
+
+        // ================== LOAD COMBO ==================
+        private void LoadCombos()
         {
-            dgvDsNhanVien.DataSource = NhanVienDAL.SelectAll();
+            // ===== Chức vụ =====
+            cbChucVu.DataSource = null;
+            cbChucVu.DisplayMember = "Ten_CV";
+            cbChucVu.ValueMember = "Ma_CV";
+            cbChucVu.DataSource = ChucVuBLL.GetAll();
+            cbChucVu.SelectedIndex = -1;
+
+            // ===== Phòng ban =====
+            cbPhongBan.DataSource = null;
+            cbPhongBan.DisplayMember = "Ten_PB";
+            cbPhongBan.ValueMember = "Ma_PB";
+            cbPhongBan.DataSource = PhongBanBLL.GetAll();
+            cbPhongBan.SelectedIndex = -1;
         }
-        private void dgvDsNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        // ================== GRID ==================
+        private void LoadGrid()
         {
-            
+            dgvDsNhanVien.AutoGenerateColumns = true;
+            dgvDsNhanVien.DataSource = NhanVienBLL.GetAll();
+
+            // Tuỳ chọn UI grid
+            dgvDsNhanVien.ReadOnly = true;
+            dgvDsNhanVien.AllowUserToAddRows = false;
+            dgvDsNhanVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDsNhanVien.MultiSelect = false;
+
+            // Đặt header cho dễ nhìn
+            RenameGridHeaders();
+
+            // Ẩn cột mã CV/PB (vì đã có Ten_CV, Ten_PB)
+            if (dgvDsNhanVien.Columns["Ma_CV"] != null) dgvDsNhanVien.Columns["Ma_CV"].Visible = false;
+            if (dgvDsNhanVien.Columns["Ma_PB"] != null) dgvDsNhanVien.Columns["Ma_PB"].Visible = false;
         }
-        private void dgvDsNhanVien_CellClick(object? sender, DataGridViewCellEventArgs e)
+
+        private void RenameGridHeaders()
         {
-            if (e.RowIndex < 0) return;
-            if (dgvDsNhanVien.Rows[e.RowIndex].DataBoundItem == null) return;
-
-            var row = dgvDsNhanVien.Rows[e.RowIndex];
-            tbMaNV.Text = row.Cells["Ma_NV"].Value?.ToString() ?? "";
-            textBox1.Text = row.Cells["Ten_NV"].Value?.ToString() ?? "";
-            textBox2.Text = row.Cells["SDT"].Value?.ToString() ?? "";
-            textBox4.Text = row.Cells["Email"].Value?.ToString() ?? "";
-
-            // Gioi_Tinh (bit) => show Nam/Nu cho dễ
-            var gt = row.Cells["Gioi_Tinh"].Value;
-            bool isNam = false;
-            if (gt is bool b) isNam = b;
-            else bool.TryParse(gt?.ToString(), out isNam);
-            textBox3.Text = isNam ? "Nam" : "Nữ";
-
-            // Date columns
-            if (DateTime.TryParse(row.Cells["Ngay_Sinh"].Value?.ToString(), out var ns))
-                dateTimePicker1.Value = ns;
-
-            if (DateTime.TryParse(row.Cells["Ngay_Vao_Lam"].Value?.ToString(), out var nvl))
-                dateTimePicker2.Value = nvl;
+            if (dgvDsNhanVien.Columns["Ma_NV"] != null) dgvDsNhanVien.Columns["Ma_NV"].HeaderText = "Mã NV";
+            if (dgvDsNhanVien.Columns["Ten_NV"] != null) dgvDsNhanVien.Columns["Ten_NV"].HeaderText = "Tên nhân viên";
+            if (dgvDsNhanVien.Columns["Ngay_Sinh"] != null) dgvDsNhanVien.Columns["Ngay_Sinh"].HeaderText = "Ngày sinh";
+            if (dgvDsNhanVien.Columns["Gioi_Tinh"] != null) dgvDsNhanVien.Columns["Gioi_Tinh"].HeaderText = "Giới tính";
+            if (dgvDsNhanVien.Columns["SDT"] != null) dgvDsNhanVien.Columns["SDT"].HeaderText = "SĐT";
+            if (dgvDsNhanVien.Columns["Email"] != null) dgvDsNhanVien.Columns["Email"].HeaderText = "Email";
+            if (dgvDsNhanVien.Columns["Ten_CV"] != null) dgvDsNhanVien.Columns["Ten_CV"].HeaderText = "Chức vụ";
+            if (dgvDsNhanVien.Columns["Ten_PB"] != null) dgvDsNhanVien.Columns["Ten_PB"].HeaderText = "Phòng ban";
         }
-        private static bool ParseGioiTinh(string? input)
+
+        // ================== MAPPING FORM <-> OBJECT ==================
+        private NhanVien GetNhanVienFromForm(bool includeId)
         {
-            var s = (input ?? "").Trim().ToLowerInvariant();
-
-            // Cho phép người dùng gõ: Nam/Nu/Nữ/true/false/1/0
-            if (s == "nam" || s == "male" || s == "m" || s == "1" || s == "true") return true;
-            if (s == "nu" || s == "nữ" || s == "female" || s == "f" || s == "0" || s == "false") return false;
-
-            // fallback: false
-            return false;
-        }
-        private NhanVien ReadNhanVienFromForm()
-        {
-            var ma = (tbMaNV.Text ?? "").Trim();
-            var ten = (textBox1.Text ?? "").Trim();
-            var sdt = (textBox2.Text ?? "").Trim();
-            var email = (textBox4.Text ?? "").Trim();
-
-            if (string.IsNullOrWhiteSpace(ma))
-                throw new InvalidOperationException("Mã nhân viên không được để trống.");
-            if (string.IsNullOrWhiteSpace(ten))
-                throw new InvalidOperationException("Tên nhân viên không được để trống.");
-
-            return new NhanVien
+            var nv = new NhanVien
             {
-                Ma_NV = ma,
-                Ten_NV = ten,
-                Ngay_Sinh = DateOnly.FromDateTime(dateTimePicker1.Value.Date),
-                Gioi_Tinh = ParseGioiTinh(textBox3.Text),
-                SDT = sdt,
-                Email = email,
-                Ngay_Vao_Lam = DateOnly.FromDateTime(dateTimePicker2.Value.Date)
+                TenNV = tbTenNV.Text.Trim(),
+                NgaySinh = dtpNgaySinh.Value,
+                NgayVaoLam = dtpNgayVaoLam.Value,
+                GioiTinh = cbGioiTinh.Text, // có thể rỗng, BLL sẽ bắt
+                SDT = tbSDT.Text.Trim(),
+                Email = tbEmail.Text.Trim(),
+
+                // tránh lỗi null -> để 0 cho BLL bắt
+                MaCV = cbChucVu.SelectedValue == null ? 0 : Convert.ToInt32(cbChucVu.SelectedValue),
+                MaPB = cbPhongBan.SelectedValue == null ? 0 : Convert.ToInt32(cbPhongBan.SelectedValue)
             };
+
+            if (includeId)
+            {
+                if (string.IsNullOrWhiteSpace(tbMaNV.Text))
+                    throw new Exception("Chưa chọn nhân viên để sửa/xóa");
+
+                nv.MaNV = int.Parse(tbMaNV.Text);
+            }
+
+            return nv;
         }
-        private void ClearNhanVienForm()
+
+        private void FillFormFromGridRow(DataGridViewRow row)
+        {
+            tbMaNV.Text = row.Cells["Ma_NV"].Value?.ToString();
+            tbTenNV.Text = row.Cells["Ten_NV"].Value?.ToString();
+            tbSDT.Text = row.Cells["SDT"].Value?.ToString();
+            tbEmail.Text = row.Cells["Email"].Value?.ToString();
+
+            // Ngày sinh
+            if (row.Cells["Ngay_Sinh"].Value != null && DateTime.TryParse(row.Cells["Ngay_Sinh"].Value.ToString(), out var d))
+                dtpNgaySinh.Value = d;
+            if (row.Cells["Ngay_Vao_Lam"].Value != null
+                 && DateTime.TryParse(row.Cells["Ngay_Vao_Lam"].Value.ToString(), out var vl))
+                dtpNgayVaoLam.Value = vl;
+
+            // Giới tính string
+            cbGioiTinh.Text = row.Cells["Gioi_Tinh"].Value?.ToString();
+
+            // SelectedValue cần Ma_CV/Ma_PB
+            if (row.Cells["Ma_CV"].Value != null)
+                cbChucVu.SelectedValue = Convert.ToInt32(row.Cells["Ma_CV"].Value);
+
+            if (row.Cells["Ma_PB"].Value != null)
+                cbPhongBan.SelectedValue = Convert.ToInt32(row.Cells["Ma_PB"].Value);
+
+        }
+
+        private void ClearForm()
         {
             tbMaNV.Clear();
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            dateTimePicker1.Value = DateTime.Today;
-            dateTimePicker2.Value = DateTime.Today;
-            tbMaNV.Focus();
-        }
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            tbTenNV.Clear();
+            tbSDT.Clear();
+            tbEmail.Clear();
 
-        }
+            cbGioiTinh.SelectedIndex = -1;
+            cbChucVu.SelectedIndex = -1;
+            cbPhongBan.SelectedIndex = -1;
 
-        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            dtpNgaySinh.Value = DateTime.Now;
+            dtpNgayVaoLam.Value = DateTime.Now;
+            tbTenNV.Focus();
         }
 
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox27_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label55_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // ================== EVENTS ==================
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
             {
-                var nv = ReadNhanVienFromForm();
-                var rows = NhanVienDAL.Insert(nv);
-                MessageBox.Show(rows > 0 ? "Thêm nhân viên OK." : "Không thêm được (0 rows).", "Thông báo");
-                SelectAll();
-                ClearNhanVienForm();
+                var nv = GetNhanVienFromForm(includeId: false);
+
+                if (NhanVienBLL.Insert(nv))
+                {
+                    MessageBox.Show("Thêm nhân viên thành công!");
+                    LoadGrid();
+                    ClearForm();
+                }
+                else MessageBox.Show("Thêm thất bại!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi");
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -149,45 +180,164 @@ namespace Quan_Ly_Nhan_Su
         {
             try
             {
-                var nv = ReadNhanVienFromForm();
-                var rows = NhanVienDAL.Update(nv);
-                MessageBox.Show(rows > 0 ? "Sửa nhân viên OK." : "Không sửa được (0 rows).", "Thông báo");
-                SelectAll();
+                var nv = GetNhanVienFromForm(includeId: true);
+
+                if (NhanVienBLL.Update(nv))
+                {
+                    MessageBox.Show("Sửa nhân viên thành công!");
+                    LoadGrid();
+                    ClearForm();
+                }
+                else MessageBox.Show("Sửa thất bại!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi");
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            var ma = (tbMaNV.Text ?? "").Trim();
-            if (string.IsNullOrWhiteSpace(ma))
-            {
-                MessageBox.Show("Chọn nhân viên cần xóa (hoặc nhập Mã NV).", "Thiếu dữ liệu");
-                return;
-            }
-
-            var ok = MessageBox.Show($"Xóa nhân viên {ma}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (ok != DialogResult.Yes) return;
-
             try
             {
-                var rows = NhanVienDAL.Delete(ma);
-                MessageBox.Show(rows > 0 ? "Xóa nhân viên OK." : "Không xóa được (0 rows).", "Thông báo");
-                SelectAll();
-                ClearNhanVienForm();
+                if (string.IsNullOrWhiteSpace(tbMaNV.Text))
+                    throw new Exception("Chưa chọn nhân viên để xóa");
+
+                int maNV = int.Parse(tbMaNV.Text);
+
+                var ok = MessageBox.Show("Xóa nhân viên này luôn nha?", "Xác nhận",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (ok == DialogResult.Yes)
+                {
+                    if (NhanVienBLL.Delete(maNV))
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        LoadGrid();
+                        ClearForm();
+                    }
+                    else MessageBox.Show("Xóa thất bại!");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi");
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void btnLamMoi_Click(object? sender, EventArgs e)
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            ClearNhanVienForm();
-            SelectAll();
+            ClearForm();
+            LoadGrid();
+        }
+
+        private void dgvDsNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvDsNhanVien.Rows[e.RowIndex];
+            FillFormFromGridRow(row);
+        }
+        private void LoadGridChucVu()
+        {
+            dgvChucVu.AutoGenerateColumns = true;
+            dgvChucVu.DataSource = ChucVuBLL.GetAll();
+
+            dgvChucVu.ReadOnly = true;
+            dgvChucVu.AllowUserToAddRows = false;
+            dgvChucVu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvChucVu.MultiSelect = false;
+
+            if (dgvChucVu.Columns["Ma_CV"] != null) dgvChucVu.Columns["Ma_CV"].HeaderText = "Mã chức vụ";
+            if (dgvChucVu.Columns["Ten_CV"] != null) dgvChucVu.Columns["Ten_CV"].HeaderText = "Tên chức vụ";
+        }
+
+        private void dgvChucVu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvChucVu.Rows[e.RowIndex];
+
+            tbMaCV.Text = row.Cells["Ma_CV"].Value?.ToString();
+            tbTenCV.Text = row.Cells["Ten_CV"].Value?.ToString();
+        }
+        private void ClearChucVu()
+        {
+            tbMaCV.Clear();
+            tbTenCV.Clear();
+            tbTenCV.Focus();
+        }
+
+        private void btnThemCV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cv = new ChucVu { TenCV = tbTenCV.Text.Trim() };
+
+                if (ChucVuBLL.Insert(cv))
+                {
+                    MessageBox.Show("Thêm chức vụ thành công!");
+                    LoadGridChucVu();
+                    ClearChucVu();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSuaCV_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var cv = new ChucVu
+                {
+                    MaCV = string.IsNullOrWhiteSpace(tbMaCV.Text) ? 0 : int.Parse(tbMaCV.Text),
+                    TenCV = tbTenCV.Text.Trim()
+                };
+
+                if (ChucVuBLL.Update(cv))
+                {
+                    MessageBox.Show("Sửa chức vụ thành công!");
+                    LoadGridChucVu();
+                    ClearChucVu();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnXoaCV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ma = string.IsNullOrWhiteSpace(tbMaCV.Text) ? 0 : int.Parse(tbMaCV.Text);
+
+                var ok = MessageBox.Show("Xóa chức vụ này luôn nha?", "Xác nhận",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (ok == DialogResult.Yes)
+                {
+                    if (ChucVuBLL.Delete(ma))
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        LoadGridChucVu();
+                        ClearChucVu();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLamMoiCV_Click(object sender, EventArgs e)
+        {
+            ClearChucVu();
+            LoadGridChucVu();
         }
     }
 }
