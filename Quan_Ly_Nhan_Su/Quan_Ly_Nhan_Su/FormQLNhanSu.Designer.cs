@@ -69,61 +69,63 @@ namespace Quan_Ly_Nhan_Su
             label15 = new Label();
             dgvChucVu = new DataGridView();
             tabPage3 = new TabPage();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
+            btnLamMoiPB = new Button();
+            btnXoaPB = new Button();
+            btnSuaPB = new Button();
+            btnThemPB = new Button();
             groupBox3 = new GroupBox();
-            textBox11 = new TextBox();
-            dateTimePicker6 = new DateTimePicker();
-            textBox13 = new TextBox();
+            tbMoTaPB = new TextBox();
+            dtpNgayThanhLap = new DateTimePicker();
+            tbTenPB = new TextBox();
             label19 = new Label();
             label20 = new Label();
             label21 = new Label();
-            textBox14 = new TextBox();
+            tbMaPB = new TextBox();
             label22 = new Label();
             label23 = new Label();
-            dataGridView2 = new DataGridView();
+            dgvPB = new DataGridView();
             tabPage4 = new TabPage();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
+            btnLamMoiHD = new Button();
+            btnXoaHD = new Button();
+            btnSuaHD = new Button();
+            btnThemHD = new Button();
             groupBox4 = new GroupBox();
-            dateTimePicker7 = new DateTimePicker();
-            dateTimePicker8 = new DateTimePicker();
-            textBox18 = new TextBox();
+            cbNhanVien = new ComboBox();
+            label17 = new Label();
+            dtpNgayKetThuc = new DateTimePicker();
+            dtpNgayBatDau = new DateTimePicker();
+            tbLoaiHD = new TextBox();
             label24 = new Label();
             label28 = new Label();
             label29 = new Label();
-            textBox19 = new TextBox();
+            tbMaHD = new TextBox();
             label30 = new Label();
             label31 = new Label();
-            dataGridView3 = new DataGridView();
+            dgvHopDong = new DataGridView();
             tabPage5 = new TabPage();
-            button13 = new Button();
-            button14 = new Button();
-            button15 = new Button();
-            button16 = new Button();
+            btnLamMoiBL = new Button();
+            btnXoaBL = new Button();
+            btnSuaBL = new Button();
+            btnThemBL = new Button();
             groupBox5 = new GroupBox();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
+            cbNhanVienLuong = new ComboBox();
+            nudNam = new NumericUpDown();
+            nudThang = new NumericUpDown();
             label10 = new Label();
             label9 = new Label();
-            textBox5 = new TextBox();
+            tbThucTinh = new TextBox();
             label8 = new Label();
-            textBox20 = new TextBox();
-            textBox21 = new TextBox();
-            textBox22 = new TextBox();
-            textBox23 = new TextBox();
+            tbKhauTru = new TextBox();
+            tbLuongCoBan = new TextBox();
+            tbPhuCap = new TextBox();
             label33 = new Label();
             label34 = new Label();
             label35 = new Label();
             label37 = new Label();
-            textBox24 = new TextBox();
+            tbMaBL = new TextBox();
             label38 = new Label();
             label39 = new Label();
-            dataGridView4 = new DataGridView();
+            dgvBangLuong = new DataGridView();
             tabPage6 = new TabPage();
             button17 = new Button();
             button18 = new Button();
@@ -193,13 +195,15 @@ namespace Quan_Ly_Nhan_Su
             ((System.ComponentModel.ISupportInitialize)dgvChucVu).BeginInit();
             tabPage3.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPB).BeginInit();
             tabPage4.SuspendLayout();
             groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHopDong).BeginInit();
             tabPage5.SuspendLayout();
             groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudNam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudThang).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBangLuong).BeginInit();
             tabPage6.SuspendLayout();
             groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
@@ -616,13 +620,13 @@ namespace Quan_Ly_Nhan_Su
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(button5);
-            tabPage3.Controls.Add(button6);
-            tabPage3.Controls.Add(button7);
-            tabPage3.Controls.Add(button8);
+            tabPage3.Controls.Add(btnLamMoiPB);
+            tabPage3.Controls.Add(btnXoaPB);
+            tabPage3.Controls.Add(btnSuaPB);
+            tabPage3.Controls.Add(btnThemPB);
             tabPage3.Controls.Add(groupBox3);
             tabPage3.Controls.Add(label23);
-            tabPage3.Controls.Add(dataGridView2);
+            tabPage3.Controls.Add(dgvPB);
             tabPage3.Location = new Point(4, 34);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
@@ -631,55 +635,55 @@ namespace Quan_Ly_Nhan_Su
             tabPage3.Text = "Phong Ban";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnLamMoiPB
             // 
-            button5.Location = new Point(568, 220);
-            button5.Margin = new Padding(4);
-            button5.Name = "button5";
-            button5.Size = new Size(118, 36);
-            button5.TabIndex = 13;
-            button5.Text = "Làm mới";
-            button5.UseVisualStyleBackColor = true;
+            btnLamMoiPB.Location = new Point(568, 220);
+            btnLamMoiPB.Margin = new Padding(4);
+            btnLamMoiPB.Name = "btnLamMoiPB";
+            btnLamMoiPB.Size = new Size(118, 36);
+            btnLamMoiPB.TabIndex = 13;
+            btnLamMoiPB.Text = "Làm mới";
+            btnLamMoiPB.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnXoaPB
             // 
-            button6.Location = new Point(386, 220);
-            button6.Margin = new Padding(4);
-            button6.Name = "button6";
-            button6.Size = new Size(118, 36);
-            button6.TabIndex = 12;
-            button6.Text = "Xóa";
-            button6.UseVisualStyleBackColor = true;
+            btnXoaPB.Location = new Point(386, 220);
+            btnXoaPB.Margin = new Padding(4);
+            btnXoaPB.Name = "btnXoaPB";
+            btnXoaPB.Size = new Size(118, 36);
+            btnXoaPB.TabIndex = 12;
+            btnXoaPB.Text = "Xóa";
+            btnXoaPB.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnSuaPB
             // 
-            button7.Location = new Point(199, 220);
-            button7.Margin = new Padding(4);
-            button7.Name = "button7";
-            button7.Size = new Size(118, 36);
-            button7.TabIndex = 11;
-            button7.Text = "Sửa";
-            button7.UseVisualStyleBackColor = true;
+            btnSuaPB.Location = new Point(199, 220);
+            btnSuaPB.Margin = new Padding(4);
+            btnSuaPB.Name = "btnSuaPB";
+            btnSuaPB.Size = new Size(118, 36);
+            btnSuaPB.TabIndex = 11;
+            btnSuaPB.Text = "Sửa";
+            btnSuaPB.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnThemPB
             // 
-            button8.Location = new Point(31, 220);
-            button8.Margin = new Padding(4);
-            button8.Name = "button8";
-            button8.Size = new Size(118, 36);
-            button8.TabIndex = 10;
-            button8.Text = "Thêm";
-            button8.UseVisualStyleBackColor = true;
+            btnThemPB.Location = new Point(31, 220);
+            btnThemPB.Margin = new Padding(4);
+            btnThemPB.Name = "btnThemPB";
+            btnThemPB.Size = new Size(118, 36);
+            btnThemPB.TabIndex = 10;
+            btnThemPB.Text = "Thêm";
+            btnThemPB.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox11);
-            groupBox3.Controls.Add(dateTimePicker6);
-            groupBox3.Controls.Add(textBox13);
+            groupBox3.Controls.Add(tbMoTaPB);
+            groupBox3.Controls.Add(dtpNgayThanhLap);
+            groupBox3.Controls.Add(tbTenPB);
             groupBox3.Controls.Add(label19);
             groupBox3.Controls.Add(label20);
             groupBox3.Controls.Add(label21);
-            groupBox3.Controls.Add(textBox14);
+            groupBox3.Controls.Add(tbMaPB);
             groupBox3.Controls.Add(label22);
             groupBox3.Location = new Point(16, 26);
             groupBox3.Name = "groupBox3";
@@ -688,26 +692,26 @@ namespace Quan_Ly_Nhan_Su
             groupBox3.TabStop = false;
             groupBox3.Text = "Phong Ban";
             // 
-            // textBox11
+            // tbMoTaPB
             // 
-            textBox11.Location = new Point(566, 30);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(470, 31);
-            textBox11.TabIndex = 12;
+            tbMoTaPB.Location = new Point(566, 30);
+            tbMoTaPB.Name = "tbMoTaPB";
+            tbMoTaPB.Size = new Size(470, 31);
+            tbMoTaPB.TabIndex = 12;
             // 
-            // dateTimePicker6
+            // dtpNgayThanhLap
             // 
-            dateTimePicker6.Location = new Point(701, 106);
-            dateTimePicker6.Name = "dateTimePicker6";
-            dateTimePicker6.Size = new Size(300, 31);
-            dateTimePicker6.TabIndex = 9;
+            dtpNgayThanhLap.Location = new Point(701, 106);
+            dtpNgayThanhLap.Name = "dtpNgayThanhLap";
+            dtpNgayThanhLap.Size = new Size(300, 31);
+            dtpNgayThanhLap.TabIndex = 9;
             // 
-            // textBox13
+            // tbTenPB
             // 
-            textBox13.Location = new Point(148, 111);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(240, 31);
-            textBox13.TabIndex = 8;
+            tbTenPB.Location = new Point(148, 111);
+            tbTenPB.Name = "tbTenPB";
+            tbTenPB.Size = new Size(240, 31);
+            tbTenPB.TabIndex = 8;
             // 
             // label19
             // 
@@ -736,12 +740,12 @@ namespace Quan_Ly_Nhan_Su
             label21.TabIndex = 2;
             label21.Text = "Ten Phong Ban";
             // 
-            // textBox14
+            // tbMaPB
             // 
-            textBox14.Location = new Point(148, 31);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(240, 31);
-            textBox14.TabIndex = 1;
+            tbMaPB.Location = new Point(148, 31);
+            tbMaPB.Name = "tbMaPB";
+            tbMaPB.Size = new Size(240, 31);
+            tbMaPB.TabIndex = 1;
             // 
             // label22
             // 
@@ -763,25 +767,26 @@ namespace Quan_Ly_Nhan_Su
             label23.TabIndex = 8;
             label23.Text = "Danh Sach Phong Ban";
             // 
-            // dataGridView2
+            // dgvPB
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(6, 285);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(1056, 169);
-            dataGridView2.TabIndex = 0;
-            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
+            dgvPB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPB.Location = new Point(6, 285);
+            dgvPB.Name = "dgvPB";
+            dgvPB.RowHeadersWidth = 62;
+            dgvPB.Size = new Size(1056, 169);
+            dgvPB.TabIndex = 0;
+            dgvPB.CellClick += dgvPhongBan_CellClick;
+            dgvPB.CellContentClick += dgvPhongBan_CellClick;
             // 
             // tabPage4
             // 
-            tabPage4.Controls.Add(button9);
-            tabPage4.Controls.Add(button10);
-            tabPage4.Controls.Add(button11);
-            tabPage4.Controls.Add(button12);
+            tabPage4.Controls.Add(btnLamMoiHD);
+            tabPage4.Controls.Add(btnXoaHD);
+            tabPage4.Controls.Add(btnSuaHD);
+            tabPage4.Controls.Add(btnThemHD);
             tabPage4.Controls.Add(groupBox4);
             tabPage4.Controls.Add(label31);
-            tabPage4.Controls.Add(dataGridView3);
+            tabPage4.Controls.Add(dgvHopDong);
             tabPage4.Location = new Point(4, 34);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
@@ -790,55 +795,57 @@ namespace Quan_Ly_Nhan_Su
             tabPage4.Text = "Hop Dong";
             tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnLamMoiHD
             // 
-            button9.Location = new Point(559, 229);
-            button9.Margin = new Padding(4);
-            button9.Name = "button9";
-            button9.Size = new Size(118, 36);
-            button9.TabIndex = 13;
-            button9.Text = "Làm mới";
-            button9.UseVisualStyleBackColor = true;
+            btnLamMoiHD.Location = new Point(559, 229);
+            btnLamMoiHD.Margin = new Padding(4);
+            btnLamMoiHD.Name = "btnLamMoiHD";
+            btnLamMoiHD.Size = new Size(118, 36);
+            btnLamMoiHD.TabIndex = 13;
+            btnLamMoiHD.Text = "Làm mới";
+            btnLamMoiHD.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnXoaHD
             // 
-            button10.Location = new Point(377, 229);
-            button10.Margin = new Padding(4);
-            button10.Name = "button10";
-            button10.Size = new Size(118, 36);
-            button10.TabIndex = 12;
-            button10.Text = "Xóa";
-            button10.UseVisualStyleBackColor = true;
+            btnXoaHD.Location = new Point(377, 229);
+            btnXoaHD.Margin = new Padding(4);
+            btnXoaHD.Name = "btnXoaHD";
+            btnXoaHD.Size = new Size(118, 36);
+            btnXoaHD.TabIndex = 12;
+            btnXoaHD.Text = "Xóa";
+            btnXoaHD.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnSuaHD
             // 
-            button11.Location = new Point(190, 229);
-            button11.Margin = new Padding(4);
-            button11.Name = "button11";
-            button11.Size = new Size(118, 36);
-            button11.TabIndex = 11;
-            button11.Text = "Sửa";
-            button11.UseVisualStyleBackColor = true;
+            btnSuaHD.Location = new Point(190, 229);
+            btnSuaHD.Margin = new Padding(4);
+            btnSuaHD.Name = "btnSuaHD";
+            btnSuaHD.Size = new Size(118, 36);
+            btnSuaHD.TabIndex = 11;
+            btnSuaHD.Text = "Sửa";
+            btnSuaHD.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnThemHD
             // 
-            button12.Location = new Point(22, 229);
-            button12.Margin = new Padding(4);
-            button12.Name = "button12";
-            button12.Size = new Size(118, 36);
-            button12.TabIndex = 10;
-            button12.Text = "Thêm";
-            button12.UseVisualStyleBackColor = true;
+            btnThemHD.Location = new Point(22, 229);
+            btnThemHD.Margin = new Padding(4);
+            btnThemHD.Name = "btnThemHD";
+            btnThemHD.Size = new Size(118, 36);
+            btnThemHD.TabIndex = 10;
+            btnThemHD.Text = "Thêm";
+            btnThemHD.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(dateTimePicker7);
-            groupBox4.Controls.Add(dateTimePicker8);
-            groupBox4.Controls.Add(textBox18);
+            groupBox4.Controls.Add(cbNhanVien);
+            groupBox4.Controls.Add(label17);
+            groupBox4.Controls.Add(dtpNgayKetThuc);
+            groupBox4.Controls.Add(dtpNgayBatDau);
+            groupBox4.Controls.Add(tbLoaiHD);
             groupBox4.Controls.Add(label24);
             groupBox4.Controls.Add(label28);
             groupBox4.Controls.Add(label29);
-            groupBox4.Controls.Add(textBox19);
+            groupBox4.Controls.Add(tbMaHD);
             groupBox4.Controls.Add(label30);
             groupBox4.Location = new Point(7, 35);
             groupBox4.Name = "groupBox4";
@@ -847,31 +854,48 @@ namespace Quan_Ly_Nhan_Su
             groupBox4.TabStop = false;
             groupBox4.Text = "Hop Dong";
             // 
-            // dateTimePicker7
+            // cbNhanVien
             // 
-            dateTimePicker7.Location = new Point(699, 118);
-            dateTimePicker7.Name = "dateTimePicker7";
-            dateTimePicker7.Size = new Size(300, 31);
-            dateTimePicker7.TabIndex = 10;
+            cbNhanVien.FormattingEnabled = true;
+            cbNhanVien.Location = new Point(148, 78);
+            cbNhanVien.Name = "cbNhanVien";
+            cbNhanVien.Size = new Size(240, 33);
+            cbNhanVien.TabIndex = 12;
             // 
-            // dateTimePicker8
+            // label17
             // 
-            dateTimePicker8.Location = new Point(699, 29);
-            dateTimePicker8.Name = "dateTimePicker8";
-            dateTimePicker8.Size = new Size(300, 31);
-            dateTimePicker8.TabIndex = 9;
+            label17.AutoSize = true;
+            label17.Location = new Point(10, 78);
+            label17.Name = "label17";
+            label17.Size = new Size(93, 25);
+            label17.TabIndex = 11;
+            label17.Text = "Nhân Viên";
             // 
-            // textBox18
+            // dtpNgayKetThuc
             // 
-            textBox18.Location = new Point(148, 117);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(240, 31);
-            textBox18.TabIndex = 8;
+            dtpNgayKetThuc.Location = new Point(699, 118);
+            dtpNgayKetThuc.Name = "dtpNgayKetThuc";
+            dtpNgayKetThuc.Size = new Size(300, 31);
+            dtpNgayKetThuc.TabIndex = 10;
+            // 
+            // dtpNgayBatDau
+            // 
+            dtpNgayBatDau.Location = new Point(699, 29);
+            dtpNgayBatDau.Name = "dtpNgayBatDau";
+            dtpNgayBatDau.Size = new Size(300, 31);
+            dtpNgayBatDau.TabIndex = 9;
+            // 
+            // tbLoaiHD
+            // 
+            tbLoaiHD.Location = new Point(148, 117);
+            tbLoaiHD.Name = "tbLoaiHD";
+            tbLoaiHD.Size = new Size(240, 31);
+            tbLoaiHD.TabIndex = 8;
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(516, 123);
+            label24.Location = new Point(552, 124);
             label24.Name = "label24";
             label24.Size = new Size(126, 25);
             label24.TabIndex = 7;
@@ -880,7 +904,7 @@ namespace Quan_Ly_Nhan_Su
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new Point(516, 34);
+            label28.Location = new Point(552, 35);
             label28.Name = "label28";
             label28.Size = new Size(121, 25);
             label28.TabIndex = 3;
@@ -895,12 +919,12 @@ namespace Quan_Ly_Nhan_Su
             label29.TabIndex = 2;
             label29.Text = "Loai Hop Dong";
             // 
-            // textBox19
+            // tbMaHD
             // 
-            textBox19.Location = new Point(148, 28);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(240, 31);
-            textBox19.TabIndex = 1;
+            tbMaHD.Location = new Point(148, 28);
+            tbMaHD.Name = "tbMaHD";
+            tbMaHD.Size = new Size(240, 31);
+            tbMaHD.TabIndex = 1;
             // 
             // label30
             // 
@@ -922,24 +946,24 @@ namespace Quan_Ly_Nhan_Su
             label31.TabIndex = 8;
             label31.Text = "Danh Sach Hop Dong";
             // 
-            // dataGridView3
+            // dgvHopDong
             // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(6, 284);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 62;
-            dataGridView3.Size = new Size(1056, 164);
-            dataGridView3.TabIndex = 0;
+            dgvHopDong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHopDong.Location = new Point(6, 284);
+            dgvHopDong.Name = "dgvHopDong";
+            dgvHopDong.RowHeadersWidth = 62;
+            dgvHopDong.Size = new Size(1056, 164);
+            dgvHopDong.TabIndex = 0;
             // 
             // tabPage5
             // 
-            tabPage5.Controls.Add(button13);
-            tabPage5.Controls.Add(button14);
-            tabPage5.Controls.Add(button15);
-            tabPage5.Controls.Add(button16);
+            tabPage5.Controls.Add(btnLamMoiBL);
+            tabPage5.Controls.Add(btnXoaBL);
+            tabPage5.Controls.Add(btnSuaBL);
+            tabPage5.Controls.Add(btnThemBL);
             tabPage5.Controls.Add(groupBox5);
             tabPage5.Controls.Add(label39);
-            tabPage5.Controls.Add(dataGridView4);
+            tabPage5.Controls.Add(dgvBangLuong);
             tabPage5.Location = new Point(4, 34);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(3);
@@ -948,63 +972,63 @@ namespace Quan_Ly_Nhan_Su
             tabPage5.Text = "Bang Luong";
             tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btnLamMoiBL
             // 
-            button13.Location = new Point(567, 235);
-            button13.Margin = new Padding(4);
-            button13.Name = "button13";
-            button13.Size = new Size(118, 36);
-            button13.TabIndex = 13;
-            button13.Text = "Làm mới";
-            button13.UseVisualStyleBackColor = true;
+            btnLamMoiBL.Location = new Point(567, 235);
+            btnLamMoiBL.Margin = new Padding(4);
+            btnLamMoiBL.Name = "btnLamMoiBL";
+            btnLamMoiBL.Size = new Size(118, 36);
+            btnLamMoiBL.TabIndex = 13;
+            btnLamMoiBL.Text = "Làm mới";
+            btnLamMoiBL.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // btnXoaBL
             // 
-            button14.Location = new Point(385, 235);
-            button14.Margin = new Padding(4);
-            button14.Name = "button14";
-            button14.Size = new Size(118, 36);
-            button14.TabIndex = 12;
-            button14.Text = "Xóa";
-            button14.UseVisualStyleBackColor = true;
+            btnXoaBL.Location = new Point(385, 235);
+            btnXoaBL.Margin = new Padding(4);
+            btnXoaBL.Name = "btnXoaBL";
+            btnXoaBL.Size = new Size(118, 36);
+            btnXoaBL.TabIndex = 12;
+            btnXoaBL.Text = "Xóa";
+            btnXoaBL.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnSuaBL
             // 
-            button15.Location = new Point(198, 235);
-            button15.Margin = new Padding(4);
-            button15.Name = "button15";
-            button15.Size = new Size(118, 36);
-            button15.TabIndex = 11;
-            button15.Text = "Sửa";
-            button15.UseVisualStyleBackColor = true;
+            btnSuaBL.Location = new Point(198, 235);
+            btnSuaBL.Margin = new Padding(4);
+            btnSuaBL.Name = "btnSuaBL";
+            btnSuaBL.Size = new Size(118, 36);
+            btnSuaBL.TabIndex = 11;
+            btnSuaBL.Text = "Sửa";
+            btnSuaBL.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // btnThemBL
             // 
-            button16.Location = new Point(30, 235);
-            button16.Margin = new Padding(4);
-            button16.Name = "button16";
-            button16.Size = new Size(118, 36);
-            button16.TabIndex = 10;
-            button16.Text = "Thêm";
-            button16.UseVisualStyleBackColor = true;
+            btnThemBL.Location = new Point(30, 235);
+            btnThemBL.Margin = new Padding(4);
+            btnThemBL.Name = "btnThemBL";
+            btnThemBL.Size = new Size(118, 36);
+            btnThemBL.TabIndex = 10;
+            btnThemBL.Text = "Thêm";
+            btnThemBL.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(textBox7);
-            groupBox5.Controls.Add(textBox6);
+            groupBox5.Controls.Add(cbNhanVienLuong);
+            groupBox5.Controls.Add(nudNam);
+            groupBox5.Controls.Add(nudThang);
             groupBox5.Controls.Add(label10);
             groupBox5.Controls.Add(label9);
-            groupBox5.Controls.Add(textBox5);
+            groupBox5.Controls.Add(tbThucTinh);
             groupBox5.Controls.Add(label8);
-            groupBox5.Controls.Add(textBox20);
-            groupBox5.Controls.Add(textBox21);
-            groupBox5.Controls.Add(textBox22);
-            groupBox5.Controls.Add(textBox23);
+            groupBox5.Controls.Add(tbKhauTru);
+            groupBox5.Controls.Add(tbLuongCoBan);
+            groupBox5.Controls.Add(tbPhuCap);
             groupBox5.Controls.Add(label33);
             groupBox5.Controls.Add(label34);
             groupBox5.Controls.Add(label35);
             groupBox5.Controls.Add(label37);
-            groupBox5.Controls.Add(textBox24);
+            groupBox5.Controls.Add(tbMaBL);
             groupBox5.Controls.Add(label38);
             groupBox5.Location = new Point(15, 41);
             groupBox5.Name = "groupBox5";
@@ -1013,19 +1037,27 @@ namespace Quan_Ly_Nhan_Su
             groupBox5.TabStop = false;
             groupBox5.Text = "Bang Luong";
             // 
-            // textBox7
+            // cbNhanVienLuong
             // 
-            textBox7.Location = new Point(864, 78);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(172, 31);
-            textBox7.TabIndex = 18;
+            cbNhanVienLuong.FormattingEnabled = true;
+            cbNhanVienLuong.Location = new Point(148, 75);
+            cbNhanVienLuong.Name = "cbNhanVienLuong";
+            cbNhanVienLuong.Size = new Size(240, 33);
+            cbNhanVienLuong.TabIndex = 21;
             // 
-            // textBox6
+            // nudNam
             // 
-            textBox6.Location = new Point(864, 28);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(172, 31);
-            textBox6.TabIndex = 12;
+            nudNam.Location = new Point(850, 82);
+            nudNam.Name = "nudNam";
+            nudNam.Size = new Size(180, 31);
+            nudNam.TabIndex = 20;
+            // 
+            // nudThang
+            // 
+            nudThang.Location = new Point(850, 34);
+            nudThang.Name = "nudThang";
+            nudThang.Size = new Size(180, 31);
+            nudThang.TabIndex = 19;
             // 
             // label10
             // 
@@ -1045,12 +1077,12 @@ namespace Quan_Ly_Nhan_Su
             label9.TabIndex = 16;
             label9.Text = "Thang";
             // 
-            // textBox5
+            // tbThucTinh
             // 
-            textBox5.Location = new Point(542, 125);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(172, 31);
-            textBox5.TabIndex = 15;
+            tbThucTinh.Location = new Point(542, 125);
+            tbThucTinh.Name = "tbThucTinh";
+            tbThucTinh.Size = new Size(172, 31);
+            tbThucTinh.TabIndex = 15;
             // 
             // label8
             // 
@@ -1061,33 +1093,26 @@ namespace Quan_Ly_Nhan_Su
             label8.TabIndex = 14;
             label8.Text = "Thuc Tinh";
             // 
-            // textBox20
+            // tbKhauTru
             // 
-            textBox20.Location = new Point(542, 72);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(172, 31);
-            textBox20.TabIndex = 13;
+            tbKhauTru.Location = new Point(542, 72);
+            tbKhauTru.Name = "tbKhauTru";
+            tbKhauTru.Size = new Size(172, 31);
+            tbKhauTru.TabIndex = 13;
             // 
-            // textBox21
+            // tbLuongCoBan
             // 
-            textBox21.Location = new Point(148, 128);
-            textBox21.Name = "textBox21";
-            textBox21.Size = new Size(240, 31);
-            textBox21.TabIndex = 12;
+            tbLuongCoBan.Location = new Point(148, 128);
+            tbLuongCoBan.Name = "tbLuongCoBan";
+            tbLuongCoBan.Size = new Size(240, 31);
+            tbLuongCoBan.TabIndex = 12;
             // 
-            // textBox22
+            // tbPhuCap
             // 
-            textBox22.Location = new Point(542, 28);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new Size(172, 31);
-            textBox22.TabIndex = 11;
-            // 
-            // textBox23
-            // 
-            textBox23.Location = new Point(148, 72);
-            textBox23.Name = "textBox23";
-            textBox23.Size = new Size(240, 31);
-            textBox23.TabIndex = 8;
+            tbPhuCap.Location = new Point(542, 28);
+            tbPhuCap.Name = "tbPhuCap";
+            tbPhuCap.Size = new Size(172, 31);
+            tbPhuCap.TabIndex = 11;
             // 
             // label33
             // 
@@ -1110,7 +1135,7 @@ namespace Quan_Ly_Nhan_Su
             // label35
             // 
             label35.AutoSize = true;
-            label35.Location = new Point(15, 131);
+            label35.Location = new Point(10, 134);
             label35.Name = "label35";
             label35.Size = new Size(123, 25);
             label35.TabIndex = 4;
@@ -1119,18 +1144,18 @@ namespace Quan_Ly_Nhan_Su
             // label37
             // 
             label37.AutoSize = true;
-            label37.Location = new Point(9, 75);
+            label37.Location = new Point(10, 84);
             label37.Name = "label37";
-            label37.Size = new Size(123, 25);
+            label37.Size = new Size(93, 25);
             label37.TabIndex = 2;
-            label37.Text = "Ma Nhan Vien";
+            label37.Text = "Nhan Vien";
             // 
-            // textBox24
+            // tbMaBL
             // 
-            textBox24.Location = new Point(148, 28);
-            textBox24.Name = "textBox24";
-            textBox24.Size = new Size(240, 31);
-            textBox24.TabIndex = 1;
+            tbMaBL.Location = new Point(148, 28);
+            tbMaBL.Name = "tbMaBL";
+            tbMaBL.Size = new Size(240, 31);
+            tbMaBL.TabIndex = 1;
             // 
             // label38
             // 
@@ -1152,15 +1177,15 @@ namespace Quan_Ly_Nhan_Su
             label39.TabIndex = 8;
             label39.Text = "Danh Sach Bang Luong";
             // 
-            // dataGridView4
+            // dgvBangLuong
             // 
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Location = new Point(6, 287);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.RowHeadersWidth = 62;
-            dataGridView4.Size = new Size(1056, 164);
-            dataGridView4.TabIndex = 0;
-            dataGridView4.CellContentClick += dataGridView4_CellContentClick;
+            dgvBangLuong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBangLuong.Location = new Point(6, 287);
+            dgvBangLuong.Name = "dgvBangLuong";
+            dgvBangLuong.RowHeadersWidth = 62;
+            dgvBangLuong.Size = new Size(1056, 164);
+            dgvBangLuong.TabIndex = 0;
+            dgvBangLuong.CellContentClick += dgvBangLuong_CellClick;
             // 
             // tabPage6
             // 
@@ -1777,17 +1802,19 @@ namespace Quan_Ly_Nhan_Su
             tabPage3.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPB).EndInit();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHopDong).EndInit();
             tabPage5.ResumeLayout(false);
             tabPage5.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudNam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudThang).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBangLuong).EndInit();
             tabPage6.ResumeLayout(false);
             tabPage6.PerformLayout();
             groupBox6.ResumeLayout(false);
@@ -1846,9 +1873,9 @@ namespace Quan_Ly_Nhan_Su
         private TabPage tabPage7;
         private TabPage tabPage8;
         private DataGridView dgvChucVu;
-        private DataGridView dataGridView2;
-        private DataGridView dataGridView3;
-        private DataGridView dataGridView4;
+        private DataGridView dgvPB;
+        private DataGridView dgvHopDong;
+        private DataGridView dgvBangLuong;
         private DataGridView dataGridView5;
         private DataGridView dataGridView6;
         private DataGridView dataGridView7;
@@ -1879,48 +1906,48 @@ namespace Quan_Ly_Nhan_Su
         private TextBox tbMaCV;
         private Label label14;
         private Label label15;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button btnLamMoiPB;
+        private Button btnXoaPB;
+        private Button btnSuaPB;
+        private Button btnThemPB;
         private GroupBox groupBox3;
-        private TextBox textBox11;
-        private DateTimePicker dateTimePicker6;
-        private TextBox textBox13;
+        private TextBox tbMoTaPB;
+        private DateTimePicker dtpNgayThanhLap;
+        private TextBox tbTenPB;
         private Label label19;
         private Label label20;
         private Label label21;
-        private TextBox textBox14;
+        private TextBox tbMaPB;
         private Label label22;
         private Label label23;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
+        private Button btnLamMoiHD;
+        private Button btnXoaHD;
+        private Button btnSuaHD;
+        private Button btnThemHD;
         private GroupBox groupBox4;
-        private DateTimePicker dateTimePicker7;
-        private DateTimePicker dateTimePicker8;
-        private TextBox textBox18;
+        private DateTimePicker dtpNgayKetThuc;
+        private DateTimePicker dtpNgayBatDau;
+        private TextBox tbLoaiHD;
         private Label label24;
         private Label label28;
         private Label label29;
-        private TextBox textBox19;
+        private TextBox tbMaHD;
         private Label label30;
         private Label label31;
-        private Button button13;
-        private Button button14;
-        private Button button15;
-        private Button button16;
+        private Button btnLamMoiBL;
+        private Button btnXoaBL;
+        private Button btnSuaBL;
+        private Button btnThemBL;
         private GroupBox groupBox5;
-        private TextBox textBox20;
-        private TextBox textBox21;
-        private TextBox textBox22;
+        private TextBox tbKhauTru;
+        private TextBox tbLuongCoBan;
+        private TextBox tbPhuCap;
         private TextBox textBox23;
         private Label label33;
         private Label label34;
         private Label label35;
         private Label label37;
-        private TextBox textBox24;
+        private TextBox tbMaBL;
         private Label label38;
         private Label label39;
         private Button button17;
@@ -1978,7 +2005,7 @@ namespace Quan_Ly_Nhan_Su
         private TextBox textBox6;
         private Label label10;
         private Label label9;
-        private TextBox textBox5;
+        private TextBox tbThucTinh;
         private Label label8;
         private DateTimePicker dateTimePicker3;
         private TextBox textBox10;
@@ -1988,5 +2015,10 @@ namespace Quan_Ly_Nhan_Su
         private Label label12;
         private ComboBox cbChucVu;
         private ComboBox cbGioiTinh;
+        private ComboBox cbNhanVien;
+        private Label label17;
+        private ComboBox cbNhanVienLuong;
+        private NumericUpDown nudNam;
+        private NumericUpDown nudThang;
     }
 }
